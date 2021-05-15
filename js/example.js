@@ -6,7 +6,7 @@ Transaction = {
 
 category = {
     name: "cafe",
-    spending_income: true,
+    spending: true,
 }
 
 user = {
