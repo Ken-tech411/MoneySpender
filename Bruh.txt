@@ -1,0 +1,15 @@
+Transaction
+	Money
+	UserID
+	Category
+	
+User
+	UserID
+	Name
+	Avatar
+	Gender
+
+Category
+	CategoryID
+	Name 
+	Spending or Income (1/0) (True/False)
