@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.container-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.header {
+    height: auto;
+    font-size: 20px;
+}
+
+.navitem{
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-push {
+    margin-right: auto;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
