@@ -8,3 +8,6 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+let auth = firebase.auth();
+let db = firebase.firestore();
