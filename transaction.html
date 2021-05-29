@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneySaving</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+</head>
+
+<body>
+    <div class="tab-fixed">
+        <span class="item">
+            <i class="fas fa-wallet"></i></br>
+            <span>Chi tiêu</span>
+        </span>
+        <span class="item">
+            <i class="fas fa-coins"></i></br>
+            <span>Thống kê</span>
+        </span>
+        <div class="dropdown">
+            <button class="btn btn-black" type="button" id="dropdownMenuButton1" data-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fas fa-cog"></i></br>
+                <span>Cài đặt</span>
+            </button>
+            <ul class="dropdown-menu mt-1" aria-labelledby="dropdownMenuButton1">
+                <li><button id="signout" class="dropdown-item">Đăng xuất</button></li>
+            </ul>
+        </div>
+    </div>
+    <div style="border-bottom: 1px solid;" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div style="margin-left: 100px;" class="container-fluid">
+            <a class="navbar-brand" href="/home.html">MoneySaving</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tính năng</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li> -->
+                </ul>
+                <ul class="navbar-nav">
+                    <li style="margin-right: 10px;" class=" nav-item">
+                        <button type="button" class="btn btn-success " data-toggle="modal" data-target="#modalTrans">
+                            <i class="fas fa-plus mr-2"></i>Add Transaction
+                        </button>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="shadow-lg card text-center">
+            <div class="card-header d-flex justify-content-center align-items-center">
+                <ul class="nav nav-pills card-header-pills">
+                    <li class="nav-item">
+                        <a class="nav-link fontsize" href="#">THÁNG TRƯỚC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fontsize" href="#">HÔM NAY</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fontsize" href="#">THÁNG NÀY</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span style="font-size: 20px">Thu nhập</span>
+                        <span style="font-size: 20px" id="income-value"> VND</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-1">
+                        <span>Chi Tiêu</span>
+                        <span style="border-bottom: 1px solid;" id="outcome-value"> VND</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <b style="margin-left: auto;" id="total-value"> VND</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal  fade" id="modalTrans" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-4">
+                            <label for="validationCustom01" class="form-label">First name</label>
+                            <input type="text" class="form-control" id="validationCustom01" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustom04" class="form-label">State</label>
+                            <select class="selectpicker border rounded" id="validationCustom04" required>
+                                <optgroup label="Picnic">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                </optgroup>
+                                <optgroup label="Camping">
+                                    <option>Tent</option>
+                                    <option>Flashlight</option>
+                                    <option>Toilet Paper</option>
+                                </optgroup>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a category!
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="validationCustomUsername" class="form-label">Username</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text" id="inputGroupPrepend">@</span>
+                                <input type="text" class="form-control" id="validationCustomUsername"
+                                    aria-describedby="inputGroupPrepend" required>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="validationCustom03" class="form-label">City</label>
+                            <div class="input-group input-append date" id="datePicker">
+                                <span class="input-group-text add-on">
+                                    <span class="fa fa-calendar">
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control" name="date" />
+
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide a valid city.
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <label for="validationCustom05" class="form-label">Zip</label>
+                            <input type="text" class="form-control" id="validationCustom05" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://kit.fontawesome.com/045ac236c9.js" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+
+    <script src="/js/firebase.js"></script>
+    <script src="/js/money.js"></script>
+    <script>
+        $('#datePicker')
+            .datepicker({
+                format: 'dd/mm/yyyy'
+            })
+            .on('changeDate', function (e) {
+                // Revalidate the date field
+                $('#eventForm').formValidation('revalidateField', 'date');
+            });
+        $('.selectpicker').selectpicker();
+    </script>
+</body>
+
+</html>

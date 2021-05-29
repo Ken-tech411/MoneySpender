@@ -12,7 +12,8 @@ loginbtn.addEventListener("click", function () {
                 email: email.value,
                 password: password.value
             }).then(function () {
-                alert("Welcome Back")
+                alert("Welcome Back!");
+                window.location.href = ("/transaction.html")
             })
         })
         .catch((error) => {
