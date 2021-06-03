@@ -70,8 +70,8 @@
 
     <div class="container mt-5">
         <div class="shadow-lg card text-center">
-            <div class="card-header d-flex justify-content-center align-items-center">
-                <ul class="nav nav-pills card-header-pills">
+            <div class="card-header">
+                <ul class=" nav nav-pills card-header-pills">
                     <li class="nav-item">
                         <a class="nav-link fontsize" href="#">THÁNG TRƯỚC</a>
                     </li>
@@ -83,7 +83,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="card-body">
+            <div id="transition" class="card-body">
                 <div class="form-group">
                     <div class="d-flex justify-content-between mb-2">
                         <span style="font-size: 20px">Thu nhập</span>
@@ -115,24 +115,22 @@
                     <form class="row g-3 needs-validation" novalidate>
                         <div class="col-md-4">
                             <label for="validationCustom01" class="form-label">Ví</label>
-                            <input type="text" class="form-control" id="wallet" required>
+                            <input type="name" class="form-control" id="wallet" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label for="validationCustom04" class="form-label">Loại</label>
-                            <select class="selectpicker border rounded" id="validationCustom04" required>
+                            <select class="selectpicker border rounded" id="category" required>
                                 <optgroup label="Expense">
-                                    <option></option>
-                                    <option>Cafe</option>
-                                    <option>Đồ ăn</option>
-                                    <option>Xăng dầu</option>
+                                    <option id="cafe">Cafe</option>
+                                    <option id="food">Đồ ăn</option>
+                                    <option id="fuel">Xăng dầu</option>
                                 </optgroup>
                                 <optgroup label="Income">
-                                    <option>Quà</option>
-                                    <option>Thưởng</option>
-
+                                    <option id="gifts">Quà</option>
+                                    <option id="award">Thưởng</option>
                                 </optgroup>
                             </select>
                             <div class="invalid-feedback">
@@ -142,8 +140,8 @@
                         <div class="col-md-4">
                             <label for="validationCustomUsername" class="form-label">Số lượng</label>
                             <div class="input-group has-validation">
-                                <input type="text" class="form-control" id="validationCustomUsername"
-                                    aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="amount" aria-describedby="inputGroupPrepend"
+                                    required>
                                 <div class="invalid-feedback">
                                     Please choose an amount.
                                 </div>
@@ -156,20 +154,17 @@
                                     <span class="fa fa-calendar">
                                     </span>
                                 </span>
-                                <input type="text" class="form-control" name="date" />
+                                <input type="text" class="form-control" id="date" name="date">
 
                             </div>
                             <div class="invalid-feedback">
-                                Please provide a valid city.
+                                Please provide a valid date.
                             </div>
                         </div>
 
                         <div class="col-md-9">
                             <label for="validationCustom05" class="form-label">Ghi chú</label>
-                            <input type="text" class="form-control" id="validationCustom05">
-                            <div class="invalid-feedback">
-                                Please provide a valid zip.
-                            </div>
+                            <input type="text" class="form-control" id="note">
                         </div>
                     </form>
                 </div>
