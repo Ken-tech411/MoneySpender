@@ -74,3 +74,9 @@
 .fontsize{
     font-size: 15px;
 }
+ .cardBody{
+     padding-top: 1.25rem;
+     padding-left: 1.25rem;
+     padding-right: 1.25rem;
+     padding-bottom: 0.25rem;
+ }

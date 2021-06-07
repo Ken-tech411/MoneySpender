@@ -9,33 +9,40 @@ signout.addEventListener("click", function () {
 })
 
 document.addEventListener("DOMContentLoaded", async function (event) {
-    let transactions = [];
-    let trans = await db.collection("Transaction").get();
-    for (var i in trans.docs) {
-        const doc = trans.docs[i]
-        category = await doc.data().category.get();
-        data = doc.data()
-        data.category = category.data();
-        transactions.push(data);
-    }
-    let income = transactions.reduce((pre, cur) => {
-        if (!cur.category.spending)
-            return pre + cur.money;
-        return pre;
-    }, 0);
-    let outcome = transactions.reduce((pre, cur) => {
-        if (cur.category.spending)
-            return pre + cur.money;
-        return pre;
-    }, 0);
-    let total = transactions.reduce((pre, cur) => {
-        if (cur.category.spending)
-            return pre - cur.money;
-        return pre + cur.money;
-    }, 0);
-    document.getElementById("income-value").innerHTML = numberWithCommas(income) + " VND"
-    document.getElementById("outcome-value").innerHTML = numberWithCommas(outcome) + "VND"
-    document.getElementById("total-value").innerHTML = numberWithCommas(total) + " VND"
+    auth.onAuthStateChanged(async function (user) {
+        if (user) {
+            let transactions = [];
+            let trans = await db.collection("Transaction").where("uid", "==", user.uid).get();
+            for (var i in trans.docs) {
+                const doc = trans.docs[i]
+                category = await doc.data().category.get();
+                data = doc.data()
+                data.category = category.data();
+                transactions.push(data);
+            }
+            let income = transactions.reduce((pre, cur) => {
+                if (!cur.category.spending)
+                    return pre + cur.money;
+                return pre;
+            }, 0);
+            let outcome = transactions.reduce((pre, cur) => {
+                if (cur.category.spending)
+                    return pre + cur.money;
+                return pre;
+            }, 0);
+            let total = transactions.reduce((pre, cur) => {
+                if (cur.category.spending)
+                    return pre - cur.money;
+                return pre + cur.money;
+            }, 0);
+            document.getElementById("income-value").innerHTML = numberWithCommas(income) + " VND"
+            document.getElementById("outcome-value").innerHTML = numberWithCommas(outcome) + "VND"
+            document.getElementById("total-value").innerHTML = numberWithCommas(total) + " VND"
+        } else {
+            window.location.href = "/login.html";
+        }
+    })
+
 });
 
 
@@ -43,7 +50,7 @@ function numberWithCommas(x) {
     return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 };
 
-function renderTrans() {
+function renderWallet() {
     auth.onAuthStateChanged(async function (user) {
         console.log(user)
         if (user) {
@@ -51,13 +58,10 @@ function renderTrans() {
             let uid = user.uid;
             let doc = await db.collection("users").doc(uid).get();
             wallet.value = doc.data().name;
-
-        } else {
-            window.location.href = "/login.html";
         }
     })
 }
-renderTrans();
+renderWallet();
 
 let wallet = document.getElementById("wallet");
 let amount = document.getElementById("amount");
@@ -85,6 +89,68 @@ add_trans.addEventListener("click", async function () {
         money: parseInt(amount.value),
         date: date.value,
         note: note.value
+    }).then((docRef) => {
+        alert("Thêm thành công")
+        window.location.reload()
+        renderTransaction()
+    }).catch((error) => {
+        console.log(error);
+        renderTransaction()
     })
+
 })
 
+function renderTransaction() {
+    auth.onAuthStateChanged(async function (user) {
+        let detail = document.getElementById("detail");
+
+        let trans = await db.collection("Transaction").where("uid", "==", user.uid).get();
+        detail.innerHTML = "";
+        for (var i in trans.docs) {
+            const doc = trans.docs[i]
+            category = await doc.data().category.get();
+            data = doc.data()
+            data.category = category.data();
+
+            let spending = (data.category.spending);
+            let tran = `<div class="form-group">
+            <div class="d-flex justify-content-between">
+            <b style="font-size: 17px;">${doc.data().date}</b>
+            <span style="color: ${(spending) ? "red" : "rgb(122, 204, 0)"};">${((spending) ? "-" : "+") + doc.data().money} VND</span>
+            </div>
+            </div>`
+            detail.innerHTML += tran
+        }
+
+
+
+    })
+}
+renderTransaction()
+
+// let doc = db.collection("category").get();
+//         let spending = doc.data().name;
+//         let trans = document.getElementById("detail");
+//         trans.innerHTML = "";
+//         transList = "";
+//         if (spending = true) {
+//             querySnapshot.forEach((doc) => {
+//                 transList += `<div class="form-group">
+//                     <div class="d-flex justify-content-between">
+//                         <b style="font-size: 17px;">${doc.data().date}</b>
+//                         <span style="color: red">-${doc.data().money} VND</span>
+//                     </div>
+//                 </div>`
+//             })
+//             trans.innerHTML = transList;
+//         } else {
+//             querySnapshot.forEach((doc) => {
+//                 transList += `<div class="form-group">
+//                     <div class="d-flex justify-content-between">
+//                         <b style="font-size: 17px;">${doc.data().date}</b>
+//                         <span style="color: rgb(122, 204, 0);">+${doc.data().money} VND</span>
+//                     </div>
+//                 </div>`
+//             })
+//             trans.innerHTML = transList;
+//         }
