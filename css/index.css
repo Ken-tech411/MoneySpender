@@ -1,10 +1,31 @@
-.container {
+.containe {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    padding: 10px;
+    flex-direction: row-reverse;
+    margin-top: 40px;
 }
 
-.container-column{
+.description {
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+}
+
+.description-feature {
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: white;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 30px;
+    flex-direction: column;
+}
+
+.container-column {
     display: flex;
     flex-direction: column;
 }
@@ -20,7 +41,7 @@
     font-size: 20px;
 }
 
-.navitem{
+.navitem {
     width: 20%;
     justify-content: center;
     align-items: center;
@@ -34,12 +55,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
-.homebg{
+.homebg {
     background-image: url("/8-beautiful-minimalist-desktop-wallpapers-8k-hongkiat-desktop-minimalist-wallpaper.jpg");
-
-    filter: blur(3px);
+    /* filter: blur(3px); */
 }
 
 .tab-fixed {
@@ -53,30 +74,76 @@
     box-shadow: 0 3px 7px 0 rgb(0 0 0 / 27%);
 }
 
-.item-drop{
+.item-drop {
     display: flex;
     justify-content: center;
     align-self: center;
     height: 64px;
 }
 
-.item{
+.item {
     display: block;
     padding: 10px 0;
     cursor: pointer;
 }
 
-.item:hover{
-    background: rgba(0,0,0,.04);
+.item:hover {
+    background: rgba(0, 0, 0, .04);
     fill: #fff;
 }
 
-.fontsize{
+.fontsize {
     font-size: 15px;
 }
- .cardBody{
-     padding-top: 1.25rem;
-     padding-left: 1.25rem;
-     padding-right: 1.25rem;
-     padding-bottom: 0.25rem;
- }
+
+.cardBody {
+    padding-top: 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.home {
+    height: 84vh;
+    width: 80vw;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgb(163, 113, 19);
+    justify-content: center;
+}
+
+.content {
+    height: 100%;
+    color: #fff;
+    padding-top: 70px;
+    position: relative;
+    z-index: 8;
+    overflow: hidden;
+}
+
+.text {
+    white-space: nowrap;
+    background-size: auto 56px;
+    background-repeat: no-repeat;
+    display: block;
+    height: 60px;
+}
+
+.subText {
+    font-weight: 300;
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-left: 80px;
+    line-height: 34px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.fontSize {
+    font-size: 50px;
+}
+
+.color {
+    color: black;
+}

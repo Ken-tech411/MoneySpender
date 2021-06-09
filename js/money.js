@@ -113,7 +113,7 @@ function renderTransaction() {
             data.category = category.data();
 
             let spending = (data.category.spending);
-            let tran = `<div class="form-group">
+            let tran = `<div style="border-bottom: 0.1rem solid rgb(150, 150, 150)" class="form-group">
             <div class="d-flex justify-content-between">
             <b style="font-size: 17px;">${doc.data().date}</b>
             <span style="color: ${(spending) ? "red" : "rgb(122, 204, 0)"};">${((spending) ? "-" : "+") + doc.data().money} VND</span>
@@ -127,30 +127,3 @@ function renderTransaction() {
     })
 }
 renderTransaction()
-
-// let doc = db.collection("category").get();
-//         let spending = doc.data().name;
-//         let trans = document.getElementById("detail");
-//         trans.innerHTML = "";
-//         transList = "";
-//         if (spending = true) {
-//             querySnapshot.forEach((doc) => {
-//                 transList += `<div class="form-group">
-//                     <div class="d-flex justify-content-between">
-//                         <b style="font-size: 17px;">${doc.data().date}</b>
-//                         <span style="color: red">-${doc.data().money} VND</span>
-//                     </div>
-//                 </div>`
-//             })
-//             trans.innerHTML = transList;
-//         } else {
-//             querySnapshot.forEach((doc) => {
-//                 transList += `<div class="form-group">
-//                     <div class="d-flex justify-content-between">
-//                         <b style="font-size: 17px;">${doc.data().date}</b>
-//                         <span style="color: rgb(122, 204, 0);">+${doc.data().money} VND</span>
-//                     </div>
-//                 </div>`
-//             })
-//             trans.innerHTML = transList;
-//         }
