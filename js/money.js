@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
             document.getElementById("outcome-value").innerHTML = numberWithCommas(outcome) + "VND"
             document.getElementById("total-value").innerHTML = numberWithCommas(total) + " VND"
         } else {
-            window.location.href = "/login.html";
+            window.location.href = "/home.html";
         }
     })
 
