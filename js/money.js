@@ -2,7 +2,7 @@ let signout = document.getElementById("signout");
 
 signout.addEventListener("click", function () {
     auth.signOut().then(() => {
-        window.location.href = ("/login.html")
+        window.location.href = ("/html/transaction.html")
     }).catch((error) => {
         // An error happened.
     });
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async function (event) {
             document.getElementById("outcome-value").innerHTML = numberWithCommas(outcome) + "VND"
             document.getElementById("total-value").innerHTML = numberWithCommas(total) + " VND"
         } else {
-            window.location.href = "/home.html";
+            window.location.href = "/index.html";
         }
     })
 

@@ -13,7 +13,7 @@ loginbtn.addEventListener("click", function () {
                 password: password.value
             }).then(function () {
                 alert("Welcome Back!");
-                window.location.href = ("/transaction.html")
+                window.location.href = ("/html/transaction.html")
             })
         })
         .catch((error) => {

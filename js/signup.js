@@ -16,7 +16,7 @@ signupbtn.addEventListener("click", function () {
             }).then(function () {
                 console.log("Document successfully written!");
                 alert("Successfully sign up");
-                window.location.href = ("/transaction.html")
+                window.location.href = ("/html/transaction.html")
             })
         })
         .catch((error) => {
