@@ -1,11 +1,11 @@
 var firebaseConfig = {
-    apiKey: "AIzaSyCOiz0MrvtBX4KgF8bS69uGz_E05nlPlkM",
-    authDomain: "wi01-quanlychitieu.firebaseapp.com",
-    projectId: "wi01-quanlychitieu",
-    storageBucket: "wi01-quanlychitieu.appspot.com",
-    messagingSenderId: "760798931236",
-    appId: "1:760798931236:web:341747b7bbce503136ebb1"
-};
+    apiKey: "AIzaSyClxaGLWqVxYOIuAQlEwTiVZS_bSQ6pW5Q",
+    authDomain: "wi01-quan-ly-chi-tieu.firebaseapp.com",
+    projectId: "wi01-quan-ly-chi-tieu",
+    storageBucket: "wi01-quan-ly-chi-tieu.appspot.com",
+    messagingSenderId: "501169147848",
+    appId: "1:501169147848:web:9efba3ef3e32002ecd3afd"
+  };
 
 firebase.initializeApp(firebaseConfig);
 

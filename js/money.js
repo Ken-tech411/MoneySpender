@@ -90,21 +90,25 @@ add_trans.addEventListener("click", async function () {
         date: date.value,
         note: note.value
     }).then((docRef) => {
-        alert("Thêm thành công")
-        window.location.reload()
-        renderTransaction()
+        if (date == null) {
+            alert("Date needed!")
+        } else {
+            alert("Thêm thành công")
+            window.location.reload()
+            renderTransaction()
+        }
+
     }).catch((error) => {
         console.log(error);
         renderTransaction()
     })
-
 })
 
 function renderTransaction() {
     auth.onAuthStateChanged(async function (user) {
         let detail = document.getElementById("detail");
 
-        let trans = await db.collection("Transaction").where("uid", "==", user.uid).get();
+        let trans = await db.collection("Transaction").orderBy("money", "asc").where("uid", "==", user.uid).get();
         detail.innerHTML = "";
         for (var i in trans.docs) {
             const doc = trans.docs[i]
@@ -121,9 +125,6 @@ function renderTransaction() {
             </div>`
             detail.innerHTML += tran
         }
-
-
-
     })
 }
 renderTransaction()
